@@ -132,7 +132,7 @@ class PortfolioManager {
     initializeAnimations() {
         // Typewriter effect for hero text
         if (document.getElementById('typed-name')) {
-            new Typed('typed-name', {
+            new Typed('#typed-name', {
                 strings: ['Network Engineer & Project Management Professional', 'Jordan Dantone'],
                 typeSpeed: 100,
                 backSpeed: 50,
@@ -144,7 +144,7 @@ class PortfolioManager {
         }
 
         if (document.getElementById('typed-title')) {
-            new Typed('typed-title', {
+            new Typed('#typed-title', {
                 strings: ['Network Infrastructure Specialist', 'Project Management Expert', 'Security Specialist'],
                 typeSpeed: 80,
                 backSpeed: 40,
