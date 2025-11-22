@@ -114,7 +114,7 @@ class PortfolioManager {
             { name: "Scope Definition & Control", level: 99, category: "Project Managemet" },
             { name: "Requirements Gathering", level: 99, category: "Project Managemet" },
             { name: "Risk Identification & Mitigation", level: 99, category: "Project Managemet" },
-            { name: "Project Lifecycle Management (Waterfall, Agile, Hybrid)", level: 99, category: "Project Managemet" },
+            { name: "Project Lifecycle Management (Waterfall, Agile, Hybrid)", level: 99, category: "Project Managemet" }
         ];
         
         return JSON.parse(localStorage.getItem('portfolio_skills')) || defaultSkills;
