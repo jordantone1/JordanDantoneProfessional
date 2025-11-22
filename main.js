@@ -40,17 +40,7 @@ class PortfolioManager {
             },
             {
                 id: 3,
-                title: "Data Center Network Optimization",
-                description: "Optimized data center network performance through traffic analysis, QoS implementation, and bandwidth management. Achieved 40% improvement in throughput.",
-                technologies: ["Data Center", "QoS", "Load Balancing", "Monitoring"],
-                image: "resources/server-room.jpg",
-                type: "Optimization",
-                status: "In Progress",
-                date: "2024-04-10"
-            },
-            {
-                id: 4,
-                title: "Network Monitoring Dashboard",
+               title: "Network Monitoring Dashboard",
                 description: "Developed general tier 1-2 network monitoring solution with real-time alerts, performance metrics, and automated reporting capabilities. This paired with smart use of AI has helped me monitor the network and solve issues fairly quickly.",
                 technologies: ["Nagios", "SelectorAI", "Python", "APIs"],
                 image: "resources/monitoring.jpg",
@@ -59,9 +49,19 @@ class PortfolioManager {
                 date: "2024-04-25"
             },
             {
+                id: 4,
+                title: "Lab 1",
+                description: "Lab 1 info",
+                technologies: ["Nagios", "SelectorAI", "Python", "APIs"],
+                image: "resources/monitoring.jpg",
+                type: "Monitoring",
+                status: "Completed",
+                date: "2024-04-25"
+            },
+            {
                 id: 5,
-                title: "Fiber Optic Network Deployment",
-                description: "Led the deployment of high-speed fiber optic network connecting multiple office locations. Includes splicing, testing, and documentation.",
+                title: "Lab 2",
+                description: "Lab 2 info",
                 technologies: ["Fiber Optic", "Splicing", "OTDR", "Documentation"],
                 image: "resources/cables.jpg",
                 type: "Infrastructure",
@@ -70,8 +70,8 @@ class PortfolioManager {
             },
             {
                 id: 6,
-                title: "SD-WAN Implementation",
-                description: "Implemented Software-Defined WAN solution to improve network agility and reduce operational costs. Centralized management and policy enforcement.",
+                title: "Lab 3",
+                description: "Lab 3 info",
                 technologies: ["SD-WAN", "Routing", "Policy", "Automation"],
                 image: "resources/network-topology.jpg",
                 type: "SD-WAN",
@@ -132,7 +132,7 @@ class PortfolioManager {
     initializeAnimations() {
         // Typewriter effect for hero text
         if (document.getElementById('typed-name')) {
-            new Typed('#typed-name', {
+            new Typed('typed-name', {
                 strings: ['Network Engineer & Project Management Professional', 'Jordan Dantone'],
                 typeSpeed: 100,
                 backSpeed: 50,
@@ -144,7 +144,7 @@ class PortfolioManager {
         }
 
         if (document.getElementById('typed-title')) {
-            new Typed('#typed-title', {
+            new Typed('typed-title', {
                 strings: ['Network Infrastructure Specialist', 'Project Management Expert', 'Security Specialist'],
                 typeSpeed: 80,
                 backSpeed: 40,
