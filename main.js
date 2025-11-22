@@ -20,7 +20,7 @@ class PortfolioManager {
         const defaultProjects = [
             {
                 id: 1,
-                title: "Enterprise Network Infrastructure Setup",
+                title: "Enterprise Network Infrastructure Setup. 360LGX",
                 description: "Complete setup of office network infrastructure including core switches, routers, and firewall. The office was running solely off a couple Xfinity WiFi routers, and I came in and completely set up the entire network - This included Cisco Switches and Routers, as well as a Juniper Firewall.",
                 technologies: ["Cisco", "Juniper", "VLANs", "OSPF", "BGP", "Segmentation", "Policy Based Routing", "Encryption", "Network Security"],
                 image: "resources/network-topology.jpg",
@@ -30,8 +30,8 @@ class PortfolioManager {
             },
             {
                 id: 2,
-                title: "Enterprise Network Infrastructure Upgrade",
-                description: "Complete overhaul of office network infrastructure including core switches, routers, and firewall. Replaced existing Cisco Switches & Routers with Fortinet hardware, and also replaced Juniper firewall with a Fortinet Fortigate (using it for routing as well). Copied original configurations and then added extra security and configurations for better bandwith + automation.",
+                title: "Enterprise Network Infrastructure Upgrade. 360LGX",
+                description: "I led a full-scale modernization of the company’s network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations.I coordinated and executed the replacement of the core Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches throughout the environment. This included redesigning VLAN structure, implementing segmentation, planning routing changes, and managing all configuration, testing, and cutover windows. To ensure operational readiness, I developed new monitoring dashboards using Power BI and automated several diagnostic workflows. The final result was a cleaner, more secure network with standardized configurations, simplified troubleshooting, and significantly improved performance and uptime.",
                 technologies: ["Cisco", "Juniper", "Fortinet", "FortiGate", "VLANs", "OSPF", "BGP", "Segmentation", "Policy Based Routing", "Encryption", "Network Security"],
                 image: "resources/network-topology.jpg",
                 type: "Infrastructure",
@@ -40,9 +40,9 @@ class PortfolioManager {
             },
             {
                 id: 3,
-               title: "Network Monitoring Dashboard",
-                description: "Developed general tier 1-2 network monitoring solution with real-time alerts, performance metrics, and automated reporting capabilities. This paired with smart use of AI has helped me monitor the network and solve issues fairly quickly.",
-                technologies: ["Nagios", "SelectorAI", "Python", "APIs"],
+               title: "SLA Monitoring & Ticketing Platform Implementation",
+                description: "To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.",
+                technologies: ["Monday.com", "SelectorAI", "Python", "PowerBI", "Incident + SLA Management"],
                 image: "resources/monitoring.jpg",
                 type: "Monitoring",
                 status: "Completed",
