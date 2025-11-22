@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Network Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1a1f36;
+            --steel-blue: #2d3748;
+            --electric-blue: #4299e1;
+            --cyan: #00d4ff;
+            --charcoal: #2d3748;
+            --light-gray: #e2e8f0;
+            --success-green: #48bb78;
+            --warning-orange: #ed8936;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-navy);
+            color: var(--light-gray);
+            overflow-x: hidden;
+        }
+        
+        .orbitron { font-family: 'Orbitron', monospace; }
+        .jetbrains { font-family: 'JetBrains Mono', monospace; }
+        
+        .glass-card {
+            background: rgba(45, 55, 72, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(66, 153, 225, 0.2);
+            border-radius: 16px;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyan));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(66, 153, 225, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--cyan);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--cyan);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: var(--steel-blue);
+            border-radius: 16px;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: var(--electric-blue);
+            color: white;
+        }
+        
+        .search-input {
+            background: rgba(45, 55, 72, 0.5);
+            border: 1px solid rgba(66, 153, 225, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .status-completed { background: var(--success-green); }
+        .status-in-progress { background: var(--warning-orange); }
+        .status-planned { background: var(--electric-blue); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-blur-md border-b border-blue-500 border-opacity-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="orbitron text-xl font-bold text-cyan-400">
+                    <a href="index.html">NetworkEngineer</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300 hover:text-white">Home</a>
+                    <a href="projects.html" class="nav-link text-cyan-400">Projects</a>
+                    <a href="skills.html" class="nav-link text-gray-300 hover:text-white">Skills</a>
+                    <a href="index.html#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 backdrop-blur-md">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-300 hover:text-white">Home</a>
+                <a href="projects.html" class="block px-3 py-2 text-cyan-400">Projects</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-300 hover:text-white">Skills</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in">
+                <h1 class="orbitron text-4xl lg:text-6xl font-bold text-white mb-4">Project Portfolio</h1>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive collection of network engineering projects showcasing enterprise solutions, 
+                    security implementations, and infrastructure optimizations.
+                </p>
+            </div>
+            
+            <!-- Project Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 fade-in">
+                <div class="glass-card p-6 text-center">
+                    <div class="text-3xl font-bold text-cyan-400 mb-2" id="total-projects">0</div>
+                    <div class="text-gray-400">Total Projects</div>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2" id="completed-projects">0</div>
+                    <div class="text-gray-400">Completed</div>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="text-3xl font-bold text-orange-400 mb-2" id="in-progress-projects">0</div>
+                    <div class="text-gray-400">In Progress</div>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2" id="total-technologies">0</div>
+                    <div class="text-gray-400">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Management Interface -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Controls -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 space-y-4 lg:space-y-0 fade-in">
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <input type="text" id="search-input" placeholder="Search projects..." 
+                           class="search-input w-full sm:w-64">
+                    <select id="filter-status" class="search-input w-full sm:w-32">
+                        <option value="">All Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Planned">Planned</option>
+                    </select>
+                    <select id="filter-type" class="search-input w-full sm:w-32">
+                        <option value="">All Types</option>
+                        <option value="Infrastructure">Infrastructure</option>
+                        <option value="Security">Security</option>
+                        <option value="Monitoring">Monitoring</option>
+                        <option value="Optimization">Optimization</option>
+                    </select>
+                </div>
+                <button id="add-project-btn" class="glass-card px-6 py-3 text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300">
+                    + Add Project
+                </button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="no-results" class="hidden text-center py-12">
+                <div class="text-gray-400 text-xl mb-4">No projects found</div>
+                <p class="text-gray-500">Try adjusting your search criteria or filters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add/Edit Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content w-full max-w-2xl mx-4">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 id="modal-title" class="orbitron text-2xl font-bold text-white">Add New Project</h2>
+                    <button id="close-modal" class="text-gray-400 hover:text-white text-2xl">×</button>
+                </div>
+                
+                <form id="project-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Project Title</label>
+                            <input type="text" id="project-title" class="search-input w-full" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Project Type</label>
+                            <select id="project-type" class="search-input w-full" required>
+                                <option value="">Select Type</option>
+                                <option value="Infrastructure">Infrastructure</option>
+                                <option value="Security">Security</option>
+                                <option value="Monitoring">Monitoring</option>
+                                <option value="Optimization">Optimization</option>
+                                <option value="SD-WAN">SD-WAN</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Description</label>
+                        <textarea id="project-description" rows="4" class="search-input w-full" required></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Technologies (comma-separated)</label>
+                        <input type="text" id="project-technologies" placeholder="e.g., Cisco, Python, AWS" class="search-input w-full" required>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Status</label>
+                            <select id="project-status" class="search-input w-full" required>
+                                <option value="Completed">Completed</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Planned">Planned</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Completion Date</label>
+                            <input type="date" id="project-date" class="search-input w-full" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Project Image URL</label>
+                        <input type="url" id="project-image" placeholder="https://example.com/image.jpg" class="search-input w-full">
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancel-btn" class="px-6 py-3 text-gray-400 hover:text-white transition-colors">
+                            Cancel
+                        </button>
+                        <button type="submit" class="glass-card px-6 py-3 text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300">
+                            Save Project
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content w-full max-w-4xl mx-4">
+            <div id="details-content">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    © 2024 Network Engineer Portfolio. Built with modern web technologies.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Projects Page Specific JavaScript
+        class ProjectsManager extends PortfolioManager {
+            constructor() {
+                super();
+                this.currentFilter = { search: '', status: '', type: '' };
+                this.editingProjectId = null;
+                this.initProjectsPage();
+            }
+
+            initProjectsPage() {
+                this.setupProjectsEventListeners();
+                this.loadAllProjects();
+                this.updateProjectStats();
+            }
+
+            setupProjectsEventListeners() {
+                // Search and filter events
+                document.getElementById('search-input')?.addEventListener('input', (e) => {
+                    this.currentFilter.search = e.target.value.toLowerCase();
+                    this.filterProjects();
+                });
+
+                document.getElementById('filter-status')?.addEventListener('change', (e) => {
+                    this.currentFilter.status = e.target.value;
+                    this.filterProjects();
+                });
+
+                document.getElementById('filter-type')?.addEventListener('change', (e) => {
+                    this.currentFilter.type = e.target.value;
+                    this.filterProjects();
+                });
+
+                // Modal events
+                document.getElementById('add-project-btn')?.addEventListener('click', () => {
+                    this.openProjectModal();
+                });
+
+                document.getElementById('close-modal')?.addEventListener('click', () => {
+                    this.closeProjectModal();
+                });
+
+                document.getElementById('cancel-btn')?.addEventListener('click', () => {
+                    this.closeProjectModal();
+                });
+
+                document.getElementById('project-form')?.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.saveProject();
+                });
+
+                // Close modals on outside click
+                document.getElementById('project-modal')?.addEventListener('click', (e) => {
+                    if (e.target.id === 'project-modal') {
+                        this.closeProjectModal();
+                    }
+                });
+
+                document.getElementById('details-modal')?.addEventListener('click', (e) => {
+                    if (e.target.id === 'details-modal') {
+                        this.closeDetailsModal();
+                    }
+                });
+            }
+
+            loadAllProjects() {
+                const container = document.getElementById('projects-grid');
+                if (!container) return;
+
+                container.innerHTML = '';
+                
+                this.projects.forEach((project, index) => {
+                    const projectCard = this.createDetailedProjectCard(project, index);
+                    container.appendChild(projectCard);
+                });
+
+                // Animate project cards
+                anime({
+                    targets: '.project-card',
+                    opacity: [0, 1],
+                    translateY: [30, 0],
+                    delay: anime.stagger(100),
+                    duration: 600,
+                    easing: 'easeOutQuart'
+                });
+            }
+
+            createDetailedProjectCard(project, index) {
+                const card = document.createElement('div');
+                card.className = 'project-card glass-card rounded-2xl overflow-hidden fade-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                const statusClass = project.status.toLowerCase().replace(' ', '-');
+                
+                card.innerHTML = `
+                    <div class="relative">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                        <div class="absolute top-4 right-4">
+                            <span class="tech-badge">${project.type}</span>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="flex items-center text-white text-sm font-medium">
+                                <span class="status-indicator status-${statusClass}"></span>
+                                ${project.status}
+                            </span>
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">${project.title}</h3>
+                        <p class="text-gray-400 mb-4 line-clamp-3">${project.description}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.technologies.slice(0, 4).map(tech => 
+                                `<span class="tech-badge">${tech}</span>`
+                            ).join('')}
+                            ${project.technologies.length > 4 ? `<span class="text-gray-400 text-sm">+${project.technologies.length - 4} more</span>` : ''}
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500">${this.formatDate(project.date)}</span>
+                            <div class="flex space-x-2">
+                                <button onclick="projectsManager.editProject(${project.id})" 
+                                        class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                                    Edit
+                                </button>
+                                <button onclick="projectsManager.deleteProject(${project.id})" 
+                                        class="text-red-400 hover:text-red-300 text-sm font-medium">
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                        <button onclick="projectsManager.viewProjectDetails(${project.id})" 
+                                class="w-full glass-card px-4 py-2 text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300">
+                            View Details
+                        </button>
+                    </div>
+                `;
+                
+                return card;
+            }
+
+            filterProjects() {
+                const container = document.getElementById('projects-grid');
+                const noResults = document.getElementById('no-results');
+                
+                let filteredProjects = this.projects.filter(project => {
+                    const matchesSearch = !this.currentFilter.search || 
+                        project.title.toLowerCase().includes(this.currentFilter.search) ||
+                        project.description.toLowerCase().includes(this.currentFilter.search) ||
+                        project.technologies.some(tech => tech.toLowerCase().includes(this.currentFilter.search));
+                    
+                    const matchesStatus = !this.currentFilter.status || project.status === this.currentFilter.status;
+                    const matchesType = !this.currentFilter.type || project.type === this.currentFilter.type;
+                    
+                    return matchesSearch && matchesStatus && matchesType;
+                });
+
+                container.innerHTML = '';
+                
+                if (filteredProjects.length === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                    
+                    filteredProjects.forEach((project, index) => {
+                        const projectCard = this.createDetailedProjectCard(project, index);
+                        container.appendChild(projectCard);
+                    });
+                }
+            }
+
+            updateProjectStats() {
+                const totalProjects = this.projects.length;
+                const completedProjects = this.projects.filter(p => p.status === 'Completed').length;
+                const inProgressProjects = this.projects.filter(p => p.status === 'In Progress').length;
+                const allTechnologies = [...new Set(this.projects.flatMap(p => p.technologies))];
+                const totalTechnologies = allTechnologies.length;
+
+                // Animate counters
+                this.animateCounter('total-projects', totalProjects);
+                this.animateCounter('completed-projects', completedProjects);
+                this.animateCounter('in-progress-projects', inProgressProjects);
+                this.animateCounter('total-technologies', totalTechnologies);
+            }
+
+            animateCounter(elementId, targetValue) {
+                const element = document.getElementById(elementId);
+                if (!element) return;
+
+                anime({
+                    targets: { value: 0 },
+                    value: targetValue,
+                    duration: 2000,
+                    easing: 'easeOutQuart',
+                    update: function(anim) {
+                        element.textContent = Math.round(anim.animations[0].currentValue);
+                    }
+                });
+            }
+
+            openProjectModal(project = null) {
+                const modal = document.getElementById('project-modal');
+                const title = document.getElementById('modal-title');
+                const form = document.getElementById('project-form');
+                
+                if (project) {
+                    title.textContent = 'Edit Project';
+                    this.editingProjectId = project.id;
+                    this.populateForm(project);
+                } else {
+                    title.textContent = 'Add New Project';
+                    this.editingProjectId = null;
+                    form.reset();
+                }
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeProjectModal() {
+                const modal = document.getElementById('project-modal');
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                this.editingProjectId = null;
+            }
+
+            populateForm(project) {
+                document.getElementById('project-title').value = project.title;
+                document.getElementById('project-type').value = project.type;
+                document.getElementById('project-description').value = project.description;
+                document.getElementById('project-technologies').value = project.technologies.join(', ');
+                document.getElementById('project-status').value = project.status;
+                document.getElementById('project-date').value = project.date;
+                document.getElementById('project-image').value = project.image;
+            }
+
+            saveProject() {
+                const formData = new FormData(document.getElementById('project-form'));
+                const projectData = {
+                    title: formData.get('project-title') || document.getElementById('project-title').value,
+                    type: formData.get('project-type') || document.getElementById('project-type').value,
+                    description: formData.get('project-description') || document.getElementById('project-description').value,
+                    technologies: (formData.get('project-technologies') || document.getElementById('project-technologies').value).split(',').map(t => t.trim()),
+                    status: formData.get('project-status') || document.getElementById('project-status').value,
+                    date: formData.get('project-date') || document.getElementById('project-date').value,
+                    image: formData.get('project-image') || document.getElementById('project-image').value || 'resources/network-topology.jpg'
+                };
+
+                if (this.editingProjectId) {
+                    // Edit existing project
+                    const index = this.projects.findIndex(p => p.id === this.editingProjectId);
+                    if (index !== -1) {
+                        this.projects[index] = { ...this.projects[index], ...projectData };
+                    }
+                } else {
+                    // Add new project
+                    const newProject = {
+                        id: this.generateId(),
+                        ...projectData
+                    };
+                    this.projects.push(newProject);
+                }
+
+                this.saveProjects();
+                this.loadAllProjects();
+                this.updateProjectStats();
+                this.closeProjectModal();
+                this.showNotification(
+                    this.editingProjectId ? 'Project updated successfully!' : 'Project added successfully!',
+                    'success'
+                );
+            }
+
+            editProject(projectId) {
+                const project = this.projects.find(p => p.id === projectId);
+                if (project) {
+                    this.openProjectModal(project);
+                }
+            }
+
+            deleteProject(projectId) {
+                if (confirm('Are you sure you want to delete this project?')) {
+                    this.projects = this.projects.filter(p => p.id !== projectId);
+                    this.saveProjects();
+                    this.loadAllProjects();
+                    this.updateProjectStats();
+                    this.showNotification('Project deleted successfully!', 'success');
+                }
+            }
+
+            viewProjectDetails(projectId) {
+                const project = this.projects.find(p => p.id === projectId);
+                if (project) {
+                    this.showProjectDetails(project);
+                }
+            }
+
+            showProjectDetails(project) {
+                const modal = document.getElementById('details-modal');
+                const content = document.getElementById('details-content');
+                
+                content.innerHTML = `
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <h2 class="orbitron text-3xl font-bold text-white">${project.title}</h2>
+                            <button onclick="projectsManager.closeDetailsModal()" class="text-gray-400 hover:text-white text-3xl">×</button>
+                        </div>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div>
+                                <img src="${project.image}" alt="${project.title}" class="w-full h-64 object-cover rounded-lg mb-6">
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-cyan-400 mb-2">Project Details</h3>
+                                        <div class="space-y-2 text-gray-300">
+                                            <p><strong>Type:</strong> ${project.type}</p>
+                                            <p><strong>Status:</strong> 
+                                                <span class="flex items-center">
+                                                    <span class="status-indicator status-${project.status.toLowerCase().replace(' ', '-')}"></span>
+                                                    ${project.status}
+                                                </span>
+                                            </p>
+                                            <p><strong>Completion Date:</strong> ${this.formatDate(project.date)}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-cyan-400 mb-3">Description</h3>
+                                    <p class="text-gray-300 leading-relaxed">${project.description}</p>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-semibold text-cyan-400 mb-3">Technologies Used</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${project.technologies.map(tech => 
+                                            `<span class="tech-badge">${tech}</span>`
+                                        ).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="flex space-x-4 pt-6">
+                                    <button onclick="projectsManager.editProject(${project.id})" 
+                                            class="glass-card px-6 py-3 text-blue-400 font-semibold hover:bg-blue-400 hover:text-gray-900 transition-all duration-300">
+                                        Edit Project
+                                    </button>
+                                    <button onclick="projectsManager.deleteProject(${project.id})" 
+                                            class="glass-card px-6 py-3 text-red-400 font-semibold hover:bg-red-400 hover:text-gray-900 transition-all duration-300">
+                                        Delete Project
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeDetailsModal() {
+                const modal = document.getElementById('details-modal');
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Initialize projects manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            window.projectsManager = new ProjectsManager();
+        });
+    </script>
+</body>
+</html>
