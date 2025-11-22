@@ -1,4 +1,4 @@
-// Network Engineer Portfolio - Main JavaScript
+// Jordan Dantone Portfolio - Main JavaScript
 class PortfolioManager {
     constructor() {
         this.projects = this.loadProjects();
@@ -20,23 +20,23 @@ class PortfolioManager {
         const defaultProjects = [
             {
                 id: 1,
-                title: "Enterprise Network Infrastructure Upgrade",
-                description: "Complete overhaul of corporate network infrastructure including core switches, routers, and wireless access points. Implemented redundant architecture with failover capabilities.",
-                technologies: ["Cisco", "VLANs", "OSPF", "BGP", "Wireless"],
+                title: "Enterprise Network Infrastructure Setup",
+                description: "Complete setup of office network infrastructure including core switches, routers, and firewall. The office was running solely off a couple Xfinity WiFi routers, and I came in and completely set up the entire network - This included Cisco Switches and Routers, as well as a Juniper Firewall.",
+                technologies: ["Cisco", "Juniper", "VLANs", "OSPF", "BGP", "Segmentation", "Policy Based Routing", "Encryption", "Network Security"],
                 image: "resources/network-topology.jpg",
                 type: "Infrastructure",
                 status: "Completed",
-                date: "2024-03-15"
+                date: "2022-02-03"
             },
             {
                 id: 2,
-                title: "Multi-Cloud Security Implementation",
-                description: "Designed and implemented comprehensive security framework across AWS and Azure environments. Includes firewalls, IDS/IPS systems, and SIEM integration.",
-                technologies: ["AWS", "Azure", "Firewall", "SIEM", "VPN"],
-                image: "resources/security.jpg",
-                type: "Security",
-                status: "Completed",
-                date: "2024-02-20"
+                title: "Enterprise Network Infrastructure Upgrade",
+                description: "Complete overhaul of office network infrastructure including core switches, routers, and firewall. Replaced existing Cisco Switches & Routers with Fortinet hardware, and also replaced Juniper firewall with a Fortinet Fortigate (using it for routing as well). Copied original configurations and then added extra security and configurations for better bandwith + automation.",
+                technologies: ["Cisco", "Juniper", "Fortinet", "FortiGate", "VLANs", "OSPF", "BGP", "Segmentation", "Policy Based Routing", "Encryption", "Network Security"],
+                image: "resources/network-topology.jpg",
+                type: "Infrastructure",
+                status: "Ongoing",
+                date: "Completion will be 2025-12-15"
             },
             {
                 id: 3,
@@ -51,12 +51,12 @@ class PortfolioManager {
             {
                 id: 4,
                 title: "Network Monitoring Dashboard",
-                description: "Developed comprehensive network monitoring solution with real-time alerts, performance metrics, and automated reporting capabilities.",
-                technologies: ["Nagios", "Grafana", "Python", "APIs"],
+                description: "Developed general tier 1-2 network monitoring solution with real-time alerts, performance metrics, and automated reporting capabilities. This paired with smart use of AI has helped me monitor the network and solve issues fairly quickly.",
+                technologies: ["Nagios", "SelectorAI", "Python", "APIs"],
                 image: "resources/monitoring.jpg",
                 type: "Monitoring",
                 status: "Completed",
-                date: "2024-01-25"
+                date: "2024-04-25"
             },
             {
                 id: 5,
@@ -86,13 +86,35 @@ class PortfolioManager {
     loadSkills() {
         const defaultSkills = [
             { name: "Cisco Networking", level: 95, category: "Networking" },
+            { name: "VLAN Segmentation & Trunking", level: 95, category: "Networking" },
+            { name: "Network Topology Design", level: 95, category: "Networking" },
+            { name: "Subnetting & IP Addressing", level: 95, category: "Networking" },
+            { name: "Routing & Switching", level: 95, category: "Networking" },
             { name: "Network Security", level: 90, category: "Security" },
-            { name: "Cloud Architecture", level: 85, category: "Cloud" },
+            { name: "VPN Configuration (IPsec / SSL)", level: 85, category: "Security" },
+            { name: "Security Logging & Monitoring", level: 80, category: "Security" },
+            { name: "Cloud Architecture", level: 70, category: "Cloud" },
             { name: "Python Automation", level: 80, category: "Programming" },
-            { name: "Linux Administration", level: 88, category: "Systems" },
-            { name: "Wireless Networks", level: 82, category: "Networking" },
-            { name: "Firewall Management", level: 92, category: "Security" },
-            { name: "Network Monitoring", level: 87, category: "Tools" }
+            { name: "PowerShell level: 77, category: "Programming" },
+            { name: "Bash", level: 70, category: "Programming" },
+            { name: "Linux Administration", level: 70, category: "Systems" },
+            { name: "Windows Administration", level: 80, category: "Systems" },
+            { name: "Configuration", level: 97, category: "Networking" },
+            { name: "Wireless Networks", level: 72, category: "Networking" },
+            { name: "Firewall Management", level: 90, category: "Security" },
+            { name: "Network Monitoring", level: 85, category: "Tools" },
+            { name: "Coordination", level: 99, category: "Project Managemet" },
+            { name: "Communication", level: 99, category: "Project Managemet" },
+            { name: "Vendor Management", level: 99, category: "Project Managemet" },
+            { name: "Stakeholder Management", level: 99, category: "Project Managemet" },
+            { name: "Detailed Planning", level: 99, category: "Project Managemet" },
+            { name: "Documentation", level: 99, category: "Project Managemet" },
+            { name: "Coordination", level: 99, category: "Project Managemet" },
+            { name: "Project Planning & Scheduling", level: 99, category: "Project Managemet" },
+            { name: "Scope Definition & Control", level: 99, category: "Project Managemet" },
+            { name: "Requirements Gathering", level: 99, category: "Project Managemet" },
+            { name: "Risk Identification & Mitigation", level: 99, category: "Project Managemet" },
+            { name: "Project Lifecycle Management (Waterfall, Agile, Hybrid)", level: 99, category: "Project Managemet" },
         ];
         
         return JSON.parse(localStorage.getItem('portfolio_skills')) || defaultSkills;
@@ -111,7 +133,7 @@ class PortfolioManager {
         // Typewriter effect for hero text
         if (document.getElementById('typed-name')) {
             new Typed('#typed-name', {
-                strings: ['Network Engineer', 'John Smith'],
+                strings: ['Network Engineer & Project Management Professional', 'Jordan Dantone'],
                 typeSpeed: 100,
                 backSpeed: 50,
                 backDelay: 2000,
@@ -123,7 +145,7 @@ class PortfolioManager {
 
         if (document.getElementById('typed-title')) {
             new Typed('#typed-title', {
-                strings: ['Enterprise Infrastructure Specialist', 'Cybersecurity Expert', 'Cloud Solutions Architect'],
+                strings: ['Network Infrastructure Specialist', 'Project Management Expert', 'Security Specialist'],
                 typeSpeed: 80,
                 backSpeed: 40,
                 backDelay: 3000,
