@@ -35,7 +35,7 @@ class PortfolioManager {
                 technologies: ["Fortinet", "FortiGate", "Cisco", "Juniper", "VLANs", "Segmentation", "Routing", "Power BI", "Policy Based Routing", "Encryption", "Network Security"],
                 image: "resources/network-topology.jpg",
                 type: "Infrastructure",
-                status: "Ongoing",
+                status: "In Progress",
                 date: "Completion will be 2025-12-15"
             },
             {
@@ -77,7 +77,7 @@ class PortfolioManager {
       type: "Infrastructure",
       status: "Completed",
       date: "2021-05-10"
-            }
+            },
         {
                 id: 7,
                 title: "Cloud Secure Web Gateway Deployment. AOT",
