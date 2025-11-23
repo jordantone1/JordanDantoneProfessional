@@ -638,6 +638,7 @@ loadSkills() {
                             <p class="leading-relaxed">
                                 ${project.description}
                             </p>
+                           ${project.link ? `<a href="${project.link}" target="_blank" class="inline-block mt-3 text-cyan-400 hover:text-cyan-300 underline">View Project Files →</a>` : ''}
                         </div>
 
                         <div>
