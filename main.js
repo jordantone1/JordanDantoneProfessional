@@ -1,4 +1,6 @@
 // Jordan Dantone Portfolio - Main JavaScript
+console.log("Loaded main.js v2");
+
 class PortfolioManager {
     constructor() {
         this.projects = this.loadProjects();
