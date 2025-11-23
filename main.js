@@ -1,5 +1,7 @@
 // Jordan Dantone Portfolio - Main JavaScript
 console.log("Loaded main.js v2");
+// 🔗 Google Apps Script Web App URL (must match your active deployment)
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyuLa8B2xYj4ifqeUq2U6IRkPKH_FTOFx9dlsqenB3TuKJ0Kh4yXTobHdkTH5iGhZNy/exec";
 
 class PortfolioManager {
     constructor() {
@@ -853,68 +855,112 @@ class PortfolioManager {
 
    // Replace your existing handleContactForm method with this updated version:
 
-handleContactForm(e) {
-    const formData = new FormData(e.target);
+    // Handle Contact Form Submit
+    handleContactForm(e) {
+        const formData = new FormData(e.target);
 
-    const payload = new URLSearchParams();
-    payload.append('name',    formData.get('name')    || '');
-    payload.append('company', formData.get('company') || '');
-    payload.append('role',    formData.get('role')    || '');
-    payload.append('email',   formData.get('email')   || '');
-    payload.append('mobile',  formData.get('mobile')  || '');
-    payload.append('message', formData.get('message') || '');
+        const payload = new URLSearchParams();
+        payload.append('name',    formData.get('name')    || '');
+        payload.append('company', formData.get('company') || '');
+        payload.append('role',    formData.get('role')    || '');
+        payload.append('email',   formData.get('email')   || '');
+        payload.append('mobile',  formData.get('mobile')  || '');
+        payload.append('message', formData.get('message') || '');
 
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
+        console.log('Submitting contact form payload:', payload.toString());
 
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    submitBtn.style.opacity = '0.6';
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
 
-    // Your Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyuLa8B2xYj4ifqeUq2U6IRkPKH_FTOFx9dlsqenB3TuKJ0Kh4yXTobHdkTH5iGhZNy/exec";
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.6';
 
-    // Use standard fetch without no-cors to get proper response
-    fetch(WEB_APP_URL, {
-        method: 'POST',
-        body: payload
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            this.showNotification('Message sent successfully! I will get back to you soon.', 'success');
-            e.target.reset();
-            
-            // Success animation
-            submitBtn.textContent = '✓ Sent!';
-            submitBtn.style.backgroundColor = '#48bb78';
-            
+        fetch(WEB_APP_URL, {
+            method: 'POST',
+            body: payload
+        })
+        .then(async (response) => {
+            const text = await response.text();
+            console.log('Raw response from Apps Script:', text);
+
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (err) {
+                throw new Error('Response was not valid JSON. Check Apps Script deployment & access settings.');
+            }
+
+            if (data.status === 'success') {
+                this.showNotification(
+                    'Message sent successfully! I will get back to you soon.',
+                    'success'
+                );
+                e.target.reset();
+
+                submitBtn.textContent = '✓ Sent!';
+                submitBtn.style.backgroundColor = '#48bb78';
+
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.backgroundColor = '';
+                }, 2000);
+            } else {
+                throw new Error(data.message || 'Submission failed');
+            }
+        })
+        .catch((err) => {
+            console.error('Form submit error:', err);
+            this.showNotification(
+                'There was an error sending your message. Please try again or email me directly at jordantone1@gmail.com',
+                'error'
+            );
+
+            submitBtn.textContent = '✗ Error';
+            submitBtn.style.backgroundColor = '#ed8936';
+
             setTimeout(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.style.backgroundColor = '';
             }, 2000);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+        });
+    }
+
+    // Simple toast notification
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className =
+            'fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full';
+
+        if (type === 'success') {
+            notification.classList.add('bg-green-600', 'text-white');
+        } else if (type === 'error') {
+            notification.classList.add('bg-red-600', 'text-white');
         } else {
-            throw new Error(data.message || 'Submission failed');
+            notification.classList.add('bg-blue-600', 'text-white');
         }
-    })
-    .catch((err) => {
-        console.error('Form submit error:', err);
-        this.showNotification('There was an error sending your message. Please try again or email me directly at jordantone1@gmail.com', 'error');
-        
-        // Error animation
-        submitBtn.textContent = '✗ Error';
-        submitBtn.style.backgroundColor = '#ed8936';
-        
+
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Slide in
         setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.style.backgroundColor = '';
-        }, 2000);
-    })
-    .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-    });
-}
+            notification.classList.remove('translate-x-full');
+        }, 100);
+
+        // Slide out + remove
+        setTimeout(() => {
+            notification.classList.add('translate-x-full');
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
 
     // Utility Methods
     formatDate(dateString) {
