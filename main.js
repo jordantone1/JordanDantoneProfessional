@@ -851,7 +851,9 @@ class PortfolioManager {
         });
     }
 
-   handleContactForm(e) {
+   // Replace your existing handleContactForm method with this updated version:
+
+handleContactForm(e) {
     const formData = new FormData(e.target);
 
     const payload = new URLSearchParams();
@@ -867,61 +869,52 @@ class PortfolioManager {
 
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.6';
 
-
-    // ⭐ IMPORTANT: Replace with your actual Web App URL
+    // Your Web App URL
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwf5FYUgE7hXBVKrwLUciyhG0G-hFFgIK167yXCNgeNN5jhOx-2n4h37i0lRs09wDE-/exec";
 
-     fetch(WEB_APP_URL, {
+    // Use standard fetch without no-cors to get proper response
+    fetch(WEB_APP_URL, {
         method: 'POST',
-        mode: 'no-cors',   // <-- key to avoid CORS-triggered “network error”
         body: payload
     })
-    .then(() => {
-        // In no-cors mode we can’t read the response, so assume success
-        this.showNotification('Message sent successfully!', 'success');
-        e.target.reset();
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            this.showNotification('Message sent successfully! I will get back to you soon.', 'success');
+            e.target.reset();
+            
+            // Success animation
+            submitBtn.textContent = '✓ Sent!';
+            submitBtn.style.backgroundColor = '#48bb78';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.backgroundColor = '';
+            }, 2000);
+        } else {
+            throw new Error(data.message || 'Submission failed');
+        }
     })
     .catch((err) => {
         console.error('Form submit error:', err);
-        this.showNotification('Network error — please try again later.', 'error');
+        this.showNotification('There was an error sending your message. Please try again or email me directly at jordantone1@gmail.com', 'error');
+        
+        // Error animation
+        submitBtn.textContent = '✗ Error';
+        submitBtn.style.backgroundColor = '#ed8936';
+        
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.backgroundColor = '';
+        }, 2000);
     })
     .finally(() => {
-        submitBtn.textContent = originalText;
         submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
     });
 }
-
-
-    showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className =
-            'fixed top-20 right-4 z-50 px-6 py-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full';
-
-        if (type === 'success') {
-            notification.classList.add('bg-green-600', 'text-white');
-        } else if (type === 'error') {
-            notification.classList.add('bg-red-600', 'text-white');
-        } else {
-            notification.classList.add('bg-blue-600', 'text-white');
-        }
-
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        // Animate in
-        setTimeout(() => {
-            notification.classList.remove('translate-x-full');
-        }, 100);
-
-        // Animate out and remove
-        setTimeout(() => {
-            notification.classList.add('translate-x-full');
-            setTimeout(() => {
-                document.body.removeChild(notification);
-            }, 300);
-        }, 3000);
-    }
 
     // Utility Methods
     formatDate(dateString) {
