@@ -34,7 +34,7 @@ class PortfolioManager {
                     'Encryption',
                     'Network Security'
                 ],
-                image: 'https://ibb.co/zTq8X0qx',
+                image: 'https://i.ibb.co/C3RJbTR8/360original.png',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2022-02-03'
@@ -57,7 +57,7 @@ class PortfolioManager {
                     'Encryption',
                     'Network Security'
                 ],
-                image: 'https://ibb.co/93tGKLtN',
+                image: 'https://i.ibb.co/G3TFYLT0/360new.png',
                 type: 'Infrastructure',
                 status: 'In Progress',
                 date: '2025-12-15'
@@ -68,7 +68,7 @@ class PortfolioManager {
                 description:
                     'To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.',
                 technologies: ['Monday.com', 'PowerBI', 'Incident + SLA Management'],
-                image: 'https://support.monday.com/hc/article_attachments/26965502187666',
+                image: 'https://i.ibb.co/kgcbz55z/m.png',
                 type: 'Monitoring',
                 status: 'Completed',
                 date: '2024-04-25'
@@ -79,7 +79,7 @@ class PortfolioManager {
                 description:
                     'I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs, and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.',
                 technologies: ['VLANs', 'ACLs', 'IP Cameras', 'Layer 2 Security'],
-                image: 'https://ibb.co/zTq8X0qx',
+                image: 'https://i.ibb.co/C3RJbTR8/360original.png',
                 type: 'Security',
                 status: 'Completed',
                 date: '2023-06-15'
@@ -98,7 +98,7 @@ class PortfolioManager {
                     'Power BI',
                     'SelectorAI'
                 ],
-                image: 'https://ibb.co/jk7MH4S5',
+                image: 'https://i.ibb.co/8gF5X8HB/lab7-3.png',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2021-05-10'
@@ -114,7 +114,7 @@ class PortfolioManager {
                     'Site-to-Site VPN',
                     'Hybrid Cloud'
                 ],
-                image: 'https://ibb.co/v22wy2y',
+                image: 'https://i.ibb.co/666n969/Azure-hybrid-environment.png',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2021-05-10'
@@ -125,14 +125,14 @@ class PortfolioManager {
                 description:
                     'I led the deployment of Forcepoint’s secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
                 technologies: ['Forcepoint', 'Azure AD', 'Cloud Security', 'Splunk'],
-                image: 'https://ibb.co/JRhV0dS1',
+                image: 'https://i.ibb.co/SXLbWxZj/Force.png',
                 type: 'Security',
                 status: 'Completed',
                 date: '2021-09-30'
             }
         ];
 
-        return JSON.parse(localStorage.getItem('portfolio_projects')) || defaultProjects;
+        return defaultProjects;
     }
 
     loadSkills() {
