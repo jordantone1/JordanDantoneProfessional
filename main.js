@@ -79,7 +79,7 @@ class PortfolioManager {
                 description:
                     'I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs, and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.',
                 technologies: ['VLANs', 'ACLs', 'IP Cameras', 'Layer 2 Security'],
-                image: 'https://i.ibb.co/C3RJbTR8/360original.png',
+                image: 'https://i.ibb.co/twW7YDxW/iot.png',
                 type: 'Security',
                 status: 'Completed',
                 date: '2023-06-15'
