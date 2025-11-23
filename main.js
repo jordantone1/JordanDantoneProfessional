@@ -870,7 +870,7 @@ class PortfolioManager {
 
 
     // ⭐ IMPORTANT: Replace with your actual Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx5j45m-wn82oZdCh_ynrLQMN0W54e0yFZoQuxeG5BILSmKeSeIGsRPY99_gTsQZ0w/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwf5FYUgE7hXBVKrwLUciyhG0G-hFFgIK167yXCNgeNN5jhOx-2n4h37i0lRs09wDE-/exec";
 
      fetch(WEB_APP_URL, {
         method: 'POST',
