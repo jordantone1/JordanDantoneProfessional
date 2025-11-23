@@ -132,19 +132,7 @@ loadProjects() {
             type: 'Security',
             status: 'Completed',
             date: '2021-09-30'
-        },
-       {
-    id: 8,
-    title: 'Lab - Setting up a multi site network with DHCP.',
-    description:
-        'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can speak to one another. Link provided is a Cisco Packet Tracer File so you may see the completed lab.',
-    technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
-    image: 'https://i.ibb.co/XxrZQZsN/Cisco-Lab-network1.png',
-    type: 'Infrastructure',
-    status: 'Completed',
-    date: '2024-04-10',
-    link: 'https://drive.google.com/file/d/1V_mjZtZ8zGNOUiC6q4plcq0c9TPhIPhv/view?usp=sharing'
-}
+        }
     ];
 }
 
