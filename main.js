@@ -849,30 +849,60 @@ class PortfolioManager {
         });
     }
 
-    handleContactForm(e) {
-        const formData = new FormData(e.target);
-        const data = Object.fromEntries(formData);
+   handleContactForm(e) {
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
 
-        // Here is where you'd hook into Excel:
-        // - Power Automate HTTP trigger that writes to Excel Online
-        // - Custom API that persists to an Excel file / DB
-        // For now we just simulate success.
+    // Build URL-encoded payload for Google Apps Script
+    const payload = new URLSearchParams();
+    payload.append('name',    data.name    || '');
+    payload.append('company', data.company || '');
+    payload.append('role',    data.role    || '');
+    payload.append('email',   data.email   || '');
+    payload.append('mobile',  data.mobile  || '');
+    payload.append('message', data.message || '');
 
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
 
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-        setTimeout(() => {
-            this.showNotification('Message sent successfully!', 'success');
+    // ⭐ IMPORTANT: Replace with your actual Web App URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw3OuLdEY9qycqFFcNRRho37P8xHmwLRRw_E-GeGLAIJS72ln9ZNeLgLVlJ5h8Rx-Oz/exec";
+
+    fetch(WEB_APP_URL, {
+        method: "POST",
+        body: payload
+    })
+    .then(response => response.text())
+    .then(text => {
+        let result;
+        try {
+            result = JSON.parse(text);
+        } catch (err) {
+            // Sometimes Apps Script doesn't send JSON — treat as success
+            result = { status: "unknown", raw: text };
+        }
+
+        if (result.status === "success" || result.status === "unknown") {
+            this.showNotification("Message sent successfully!", "success");
             e.target.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+        } else {
+            this.showNotification("There was an error submitting the form.", "error");
+        }
 
-            // console.log(data); // You can inspect payload structure
-        }, 1500);
-    }
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    })
+    .catch(err => {
+        console.error("Form submit error:", err);
+        this.showNotification("Network error — please try again later.", "error");
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+    });
+}
+
 
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
