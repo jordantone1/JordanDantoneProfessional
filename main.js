@@ -46,8 +46,7 @@ class PortfolioManager {
         {
             id: 2,
             title: 'Enterprise Network Infrastructure Upgrade. 360LGX',
-            description:
-                'I led a full-scale modernization of the company's network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations. I coordinated and executed the replacement of the Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches. This included redesigning VLANs, implementing segmentation, planning routing changes, and managing configuration, testing, and cutover windows. I also built Power BI monitoring dashboards and automated diagnostic workflows, resulting in a cleaner, more secure, and more stable network.',
+            description: 'I led a full-scale modernization of the company network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations. I coordinated and executed the replacement of the Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches. This included redesigning VLANs, implementing segmentation, planning routing changes, and managing configuration, testing, and cutover windows. I also built Power BI monitoring dashboards and automated diagnostic workflows, resulting in a cleaner, more secure, and more stable network.',
             technologies: [
                 'Fortinet',
                 'FortiGate',
@@ -127,7 +126,7 @@ class PortfolioManager {
             id: 7,
             title: 'Cloud Secure Web Gateway Deployment. AOT',
             description:
-                'I led the deployment of Forcepoint's secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
+                'I led the deployment of Forcepoint secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
             technologies: ['Forcepoint', 'Azure AD', 'Cloud Security', 'Splunk'],
             image: 'https://i.ibb.co/SXLbWxZj/Force.png',
             type: 'Security',
@@ -138,10 +137,10 @@ class PortfolioManager {
     id: 8,
     title: 'Lab - Setting up a multi site network with DHCP.',
     description:
-        'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can \'speak\' to one another. Please check out the lab in CPT via this link <a>href="https://drive.google.com/file/d/1V_mjZtZ8zGNOUiC6q4plcq0c9TPhIPhv/view?usp=sharing</a>',
+        'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can 'speak' to one another. Please check out the lab in CPT via this link <a>href="https://drive.google.com/file/d/1V_mjZtZ8zGNOUiC6q4plcq0c9TPhIPhv/view?usp=sharing" target="_blank" class="text-cyan-400 hover:text-cyan-300 underline">View detailed documentation</a>',
     technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
     image: 'https://i.ibb.co/XxrZQZsN/Cisco-Lab-network1.png',
-    type: 'LAB - Infrastructure',
+    type: 'Infrastructure',
     status: 'Completed',
     date: '2024-04-10'
 }
