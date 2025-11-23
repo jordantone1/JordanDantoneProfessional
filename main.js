@@ -36,7 +36,7 @@ class PortfolioManager {
                 image: "resources/network-topology.jpg",
                 type: "Infrastructure",
                 status: "In Progress",
-                date: "Completion will be 2025-12-15"
+                date: "2025-12-15"
             },
             {
                 id: 3,
