@@ -869,7 +869,7 @@ class PortfolioManager {
     submitBtn.disabled = true;
 
     // ⭐ IMPORTANT: Replace with your actual Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzNJ_cKKZuhGDgV2NG8J-HTUaByNZ93Y0jGnIyozAtZI7oVBXtRRMhjAjfCo28x8HA6/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx5j45m-wn82oZdCh_ynrLQMN0W54e0yFZoQuxeG5BILSmKeSeIGsRPY99_gTsQZ0w/exec";
 
     fetch(WEB_APP_URL, {
         method: "POST",
