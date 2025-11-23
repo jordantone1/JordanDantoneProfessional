@@ -503,7 +503,7 @@ class PortfolioManager {
         const container = document.getElementById('projects-grid');
         if (!container) return;
 
-        const featuredProjects = this.projects.slice(0, 25);
+        const featuredProjects = this.projects;
         container.innerHTML = '';
 
         featuredProjects.forEach((project, index) => {
