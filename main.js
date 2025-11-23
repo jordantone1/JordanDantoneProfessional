@@ -1,7 +1,7 @@
 // Jordan Dantone Portfolio - Main JavaScript
 console.log("Loaded main.js v2");
 // 🔗 Google Apps Script Web App URL (must match your active deployment)
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyuLa8B2xYj4ifqeUq2U6IRkPKH_FTOFx9dlsqenB3TuKJ0Kh4yXTobHdkTH5iGhZNy/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz_8fU0U-L4nj8jsQdRuYXxUyJQxtgrfRrfwp8VDNPqptTYdXztpvpeIzVnCOinw4Pg/exec";
 
 class PortfolioManager {
     constructor() {
