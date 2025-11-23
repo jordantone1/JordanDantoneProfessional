@@ -133,6 +133,17 @@ class PortfolioManager {
                 type: 'Security',
                 status: 'Completed',
                 date: '2021-09-30'
+            },
+            {
+                id: 8,
+                title: 'Lab - Setting up a multi site network with DHCP.',
+                description:
+                    'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can 'speak' to one another.',
+                technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration", 'DHCP Site Configuration'],
+                image: 'https://i.ibb.co/XxrZQZsN/Cisco-Lab-network1.png',
+                type: 'Infrastructure',
+                status: 'Completed',
+                date: '2024-04-10'
             }
         ];
 
