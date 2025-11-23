@@ -31,8 +31,8 @@ class PortfolioManager {
             {
                 id: 2,
                 title: "Enterprise Network Infrastructure Upgrade. 360LGX",
-                description: "I led a full-scale modernization of the company’s network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations.I coordinated and executed the replacement of the core Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches throughout the environment. This included redesigning VLAN structure, implementing segmentation, planning routing changes, and managing all configuration, testing, and cutover windows. To ensure operational readiness, I developed new monitoring dashboards using Power BI and automated several diagnostic workflows. The final result was a cleaner, more secure network with standardized configurations, simplified troubleshooting, and significantly improved performance and uptime.",
-                technologies: ["Cisco", "Juniper", "Fortinet", "FortiGate", "VLANs", "OSPF", "BGP", "Segmentation", "Policy Based Routing", "Encryption", "Network Security"],
+                description: "I led a full-scale modernization of the company’s network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations. I coordinated and executed the replacement of the Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches. This included redesigning VLANs, implementing segmentation, planning routing changes, and managing configuration, testing, and cutover windows. I also built Power BI monitoring dashboards and automated diagnostic workflows, resulting in a cleaner, more secure, and more stable network.",
+                technologies: ["Fortinet", "FortiGate", "Cisco", "Juniper", "VLANs", "Segmentation", "Routing", "Power BI", "Policy Based Routing", "Encryption", "Network Security"],
                 image: "resources/network-topology.jpg",
                 type: "Infrastructure",
                 status: "Ongoing",
@@ -40,9 +40,9 @@ class PortfolioManager {
             },
             {
                 id: 3,
-               title: "SLA Monitoring & Ticketing Platform Implementation",
+               title: "SLA Monitoring & Ticketing Platform Implementation. 360LGX",
                 description: "To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.",
-                technologies: ["Monday.com", "SelectorAI", "Python", "PowerBI", "Incident + SLA Management"],
+                technologies: ["Monday.com", "PowerBI", "Incident + SLA Management"],
                 image: "resources/monitoring.jpg",
                 type: "Monitoring",
                 status: "Completed",
@@ -50,33 +50,43 @@ class PortfolioManager {
             },
             {
                 id: 4,
-                title: "Lab 1",
-                description: "Lab 1 info",
-                technologies: ["Nagios", "SelectorAI", "Python", "APIs"],
-                image: "resources/monitoring.jpg",
-                type: "Monitoring",
-                status: "Completed",
-                date: "2024-04-25"
+                title: "IoT Security & Camera Network Segmentation. 360LGX",
+      description: "I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs,  and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.",
+      technologies: ["VLANs", "ACLs", "IP Cameras", "Layer 2 Security"],
+      image: "resources/cameras.jpg",
+      type: "Security",
+      status: "Completed",
+      date: "2023-06-15"
             },
             {
                 id: 5,
-                title: "Lab 2",
-                description: "Lab 2 info",
-                technologies: ["Fiber Optic", "Splicing", "OTDR", "Documentation"],
-                image: "resources/cables.jpg",
-                type: "Infrastructure",
-                status: "Completed",
-                date: "2023-12-15"
+                title: "Network Automation & Monitoring Enhancements. 360LGX",
+      description: "I developed Python and PowerShell tools that automated gatewaychecks, DNS validation, and device reachability tests, reducing incident response times. I also deployed Splunk and Power BI dashboards, configured syslog/SNMP ingestion, and built alerts for interface errorsand security events, improving visibility across the network. I utilize AI tools like SelectorAI packet tracer to also diagnose and troubleshoot issues.",
+      technologies: ["Python", "PowerShell", "Splunk", "SNMP", "Syslog", "Power BI", "SelectorAI"],
+      image: "resources/cloud.jpg",
+      type: "Infrastructure",
+      status: "Completed",
+      date: "2021-05-10"
             },
             {
                 id: 6,
-                title: "Lab 3",
-                description: "Lab 3 info",
-                technologies: ["SD-WAN", "Routing", "Policy", "Automation"],
-                image: "resources/network-topology.jpg",
-                type: "SD-WAN",
-                status: "In Progress",
-                date: "2024-05-01"
+                title: "Hybrid Cloud Connectivity & Azure Integration. AOT",
+      description: "I supported hybrid cloud operations using Azure VNets, Azure AD, and site-to-site VPN tunnels linking on-prem and cloud environments. I partnered with infrastructure and security teams to validate routing, identity integrations, and uptime for customer-facing systems.",
+      technologies: ["Azure VNet", "Azure AD", "Site-to-Site VPN", "Hybrid Cloud"],
+      image: "resources/cloud.jpg",
+      type: "Infrastructure",
+      status: "Completed",
+      date: "2021-05-10"
+            }
+        {
+                id: 7,
+                title: "Cloud Secure Web Gateway Deployment. AOT",
+      description: "I led the deployment of Forcepoint’s secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.",
+      technologies: ["Forcepoint", "Azure AD", "Cloud Security", "Splunk"],
+      image: "resources/security.jpg",
+      type: "Security",
+      status: "Completed",
+      date: "2021-09-30"
             }
         ];
         
@@ -84,41 +94,48 @@ class PortfolioManager {
     }
 
     loadSkills() {
-        const defaultSkills = [
-            { name: "Cisco Networking", level: 95, category: "Networking" },
-            { name: "VLAN Segmentation & Trunking", level: 95, category: "Networking" },
-            { name: "Network Topology Design", level: 95, category: "Networking" },
-            { name: "Subnetting & IP Addressing", level: 95, category: "Networking" },
-            { name: "Routing & Switching", level: 95, category: "Networking" },
-            { name: "Network Security", level: 90, category: "Security" },
-            { name: "VPN Configuration (IPsec / SSL)", level: 85, category: "Security" },
-            { name: "Security Logging & Monitoring", level: 80, category: "Security" },
-            { name: "Cloud Architecture", level: 70, category: "Cloud" },
-            { name: "Python Automation", level: 80, category: "Programming" },
-            { name: "PowerShell level: 77, category: "Programming" },
-            { name: "Bash", level: 70, category: "Programming" },
-            { name: "Linux Administration", level: 70, category: "Systems" },
-            { name: "Windows Administration", level: 80, category: "Systems" },
-            { name: "Configuration", level: 97, category: "Networking" },
-            { name: "Wireless Networks", level: 72, category: "Networking" },
-            { name: "Firewall Management", level: 90, category: "Security" },
-            { name: "Network Monitoring", level: 85, category: "Tools" },
-            { name: "Coordination", level: 99, category: "Project Managemet" },
-            { name: "Communication", level: 99, category: "Project Managemet" },
-            { name: "Vendor Management", level: 99, category: "Project Managemet" },
-            { name: "Stakeholder Management", level: 99, category: "Project Managemet" },
-            { name: "Detailed Planning", level: 99, category: "Project Managemet" },
-            { name: "Documentation", level: 99, category: "Project Managemet" },
-            { name: "Coordination", level: 99, category: "Project Managemet" },
-            { name: "Project Planning & Scheduling", level: 99, category: "Project Managemet" },
-            { name: "Scope Definition & Control", level: 99, category: "Project Managemet" },
-            { name: "Requirements Gathering", level: 99, category: "Project Managemet" },
-            { name: "Risk Identification & Mitigation", level: 99, category: "Project Managemet" },
-            { name: "Project Lifecycle Management (Waterfall, Agile, Hybrid)", level: 99, category: "Project Managemet" }
-        ];
-        
-        return JSON.parse(localStorage.getItem('portfolio_skills')) || defaultSkills;
-    }
+    const defaultSkills = [
+        // Networking
+        { id: 1, name: "Cisco Networking", level: 90, category: "Networking" },
+        { id: 2, name: "VLAN Segmentation & Trunking", level: 90, category: "Networking" },
+        { id: 3, name: "Network Topology Design", level: 88, category: "Networking" },
+        { id: 4, name: "Subnetting & IP Addressing", level: 90, category: "Networking" },
+        { id: 5, name: "Routing & Switching", level: 90, category: "Networking" },
+        { id: 6, name: "Wireless Networks", level: 75, category: "Networking" },
+        { id: 7, name: "Configuration", level: 92, category: "Networking" },
+
+        // Security
+        { id: 8, name: "Network Security", level: 85, category: "Security" },
+        { id: 9, name: "Firewall Management", level: 85, category: "Security" },
+        { id: 10, name: "VPN Configuration (IPsec / SSL)", level: 80, category: "Security" },
+        { id: 11, name: "Security Logging & Monitoring", level: 80, category: "Security" },
+
+        // Cloud / Systems / Tools
+        { id: 12, name: "Cloud Architecture (Azure)", level: 70, category: "Cloud" },
+        { id: 13, name: "Linux Administration", level: 70, category: "Systems" },
+        { id: 14, name: "Windows Administration", level: 80, category: "Systems" },
+        { id: 15, name: "Network Monitoring Tools", level: 82, category: "Tools" },
+
+        // Programming / Automation
+        { id: 16, name: "Python Automation", level: 80, category: "Programming" },
+        { id: 17, name: "PowerShell", level: 77, category: "Programming" },
+        { id: 18, name: "Bash", level: 70, category: "Programming" },
+
+        // Project Management
+        { id: 19, name: "Project Planning & Scheduling", level: 95, category: "Project Management" },
+        { id: 20, name: "Scope Definition & Control", level: 95, category: "Project Management" },
+        { id: 21, name: "Requirements Gathering", level: 95, category: "Project Management" },
+        { id: 22, name: "Risk Identification & Mitigation", level: 95, category: "Project Management" },
+        { id: 23, name: "Stakeholder Management", level: 95, category: "Project Management" },
+        { id: 24, name: "Vendor Management", level: 95, category: "Project Management" },
+        { id: 25, name: "Communication", level: 95, category: "Project Management" },
+        { id: 26, name: "Documentation", level: 95, category: "Project Management" },
+        { id: 27, name: "Project Lifecycle Management (Waterfall, Agile, Hybrid)", level: 95, category: "Project Management" }
+    ];
+
+    return JSON.parse(localStorage.getItem('portfolio_skills')) || defaultSkills;
+}
+
 
     saveProjects() {
         localStorage.setItem('portfolio_projects', JSON.stringify(this.projects));
