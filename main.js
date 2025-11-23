@@ -34,7 +34,7 @@ class PortfolioManager {
                     'Encryption',
                     'Network Security'
                 ],
-                image: 'resources/network-topology.jpg',
+                image: 'https://ibb.co/zTq8X0qx',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2022-02-03'
@@ -57,7 +57,7 @@ class PortfolioManager {
                     'Encryption',
                     'Network Security'
                 ],
-                image: 'resources/network-topology.jpg',
+                image: 'https://ibb.co/93tGKLtN',
                 type: 'Infrastructure',
                 status: 'In Progress',
                 date: '2025-12-15'
@@ -68,7 +68,7 @@ class PortfolioManager {
                 description:
                     'To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.',
                 technologies: ['Monday.com', 'PowerBI', 'Incident + SLA Management'],
-                image: 'resources/monitoring.jpg',
+                image: 'https://support.monday.com/hc/article_attachments/26965502187666',
                 type: 'Monitoring',
                 status: 'Completed',
                 date: '2024-04-25'
@@ -79,16 +79,16 @@ class PortfolioManager {
                 description:
                     'I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs, and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.',
                 technologies: ['VLANs', 'ACLs', 'IP Cameras', 'Layer 2 Security'],
-                image: 'resources/cameras.jpg',
+                image: 'https://ibb.co/zTq8X0qx',
                 type: 'Security',
                 status: 'Completed',
                 date: '2023-06-15'
             },
             {
                 id: 5,
-                title: 'Network Automation & Monitoring Enhancements. 360LGX',
+                title: 'Network Automation, Security & Monitoring Enhancements. 360LGX',
                 description:
-                    'I developed Python and PowerShell tools that automated gateway checks, DNS validation, and device reachability tests, reducing incident response times. I also deployed Splunk and Power BI dashboards, configured syslog/SNMP ingestion, and built alerts for interface errors and security events, improving visibility across the network. I utilize AI tools like SelectorAI packet tracer to also diagnose and troubleshoot issues.',
+                    'I developed Python and PowerShell tools that checked security for users, automated gateway checks, DNS validation, and device reachability tests, reducing incident response times. I also deployed Splunk and Power BI dashboards, configured syslog/SNMP ingestion, and built alerts for interface errors and security events, improving visibility across the network. I utilize AI tools like SelectorAI packet tracer to also diagnose and troubleshoot issues.',
                 technologies: [
                     'Python',
                     'PowerShell',
@@ -98,7 +98,7 @@ class PortfolioManager {
                     'Power BI',
                     'SelectorAI'
                 ],
-                image: 'resources/cloud.jpg',
+                image: 'https://ibb.co/jk7MH4S5',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2021-05-10'
@@ -114,7 +114,7 @@ class PortfolioManager {
                     'Site-to-Site VPN',
                     'Hybrid Cloud'
                 ],
-                image: 'resources/cloud.jpg',
+                image: 'https://ibb.co/v22wy2y',
                 type: 'Infrastructure',
                 status: 'Completed',
                 date: '2021-05-10'
@@ -125,7 +125,7 @@ class PortfolioManager {
                 description:
                     'I led the deployment of Forcepoint’s secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
                 technologies: ['Forcepoint', 'Azure AD', 'Cloud Security', 'Splunk'],
-                image: 'resources/security.jpg',
+                image: 'https://ibb.co/JRhV0dS1',
                 type: 'Security',
                 status: 'Completed',
                 date: '2021-09-30'
