@@ -851,16 +851,14 @@ class PortfolioManager {
 
    handleContactForm(e) {
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
 
-    // Build URL-encoded payload for Google Apps Script
     const payload = new URLSearchParams();
-    payload.append('name',    data.name    || '');
-    payload.append('company', data.company || '');
-    payload.append('role',    data.role    || '');
-    payload.append('email',   data.email   || '');
-    payload.append('mobile',  data.mobile  || '');
-    payload.append('message', data.message || '');
+    payload.append('name',    formData.get('name')    || '');
+    payload.append('company', formData.get('company') || '');
+    payload.append('role',    formData.get('role')    || '');
+    payload.append('email',   formData.get('email')   || '');
+    payload.append('mobile',  formData.get('mobile')  || '');
+    payload.append('message', formData.get('message') || '');
 
     const submitBtn = e.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
@@ -868,36 +866,25 @@ class PortfolioManager {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
+
     // ⭐ IMPORTANT: Replace with your actual Web App URL
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbx5j45m-wn82oZdCh_ynrLQMN0W54e0yFZoQuxeG5BILSmKeSeIGsRPY99_gTsQZ0w/exec";
 
-    fetch(WEB_APP_URL, {
-        method: "POST",
+     fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',   // <-- key to avoid CORS-triggered “network error”
         body: payload
     })
-    .then(response => response.text())
-    .then(text => {
-        let result;
-        try {
-            result = JSON.parse(text);
-        } catch (err) {
-            // Sometimes Apps Script doesn't send JSON — treat as success
-            result = { status: "unknown", raw: text };
-        }
-
-        if (result.status === "success" || result.status === "unknown") {
-            this.showNotification("Message sent successfully!", "success");
-            e.target.reset();
-        } else {
-            this.showNotification("There was an error submitting the form.", "error");
-        }
-
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+    .then(() => {
+        // In no-cors mode we can’t read the response, so assume success
+        this.showNotification('Message sent successfully!', 'success');
+        e.target.reset();
     })
-    .catch(err => {
-        console.error("Form submit error:", err);
-        this.showNotification("Network error — please try again later.", "error");
+    .catch((err) => {
+        console.error('Form submit error:', err);
+        this.showNotification('Network error — please try again later.', 'error');
+    })
+    .finally(() => {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
     });
