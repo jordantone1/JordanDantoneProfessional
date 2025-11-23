@@ -872,7 +872,7 @@ handleContactForm(e) {
     submitBtn.style.opacity = '0.6';
 
     // Your Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwf5FYUgE7hXBVKrwLUciyhG0G-hFFgIK167yXCNgeNN5jhOx-2n4h37i0lRs09wDE-/exec";
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyuLa8B2xYj4ifqeUq2U6IRkPKH_FTOFx9dlsqenB3TuKJ0Kh4yXTobHdkTH5iGhZNy/exec";
 
     // Use standard fetch without no-cors to get proper response
     fetch(WEB_APP_URL, {
