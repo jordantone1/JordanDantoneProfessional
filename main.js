@@ -21,320 +21,310 @@ class PortfolioManager {
 
     // Data Management
     loadProjects() {
-        const defaultProjects = [
-            {
-                id: 1,
-                title: 'Enterprise Network Infrastructure Setup. 360LGX',
-                description:
-                    'Complete setup of office network infrastructure including core switches, routers, and firewall. The office was running solely off a couple Xfinity WiFi routers, and I came in and completely set up the entire network - This included Cisco Switches and Routers, as well as a Juniper Firewall.',
-                technologies: [
-                    'Cisco',
-                    'Juniper',
-                    'VLANs',
-                    'OSPF',
-                    'BGP',
-                    'Segmentation',
-                    'Policy Based Routing',
-                    'Encryption',
-                    'Network Security'
-                ],
-                image: 'https://i.ibb.co/C3RJbTR8/360original.png',
-                type: 'Infrastructure',
-                status: 'Completed',
-                date: '2022-02-03'
-            },
-            {
-                id: 2,
-                title: 'Enterprise Network Infrastructure Upgrade. 360LGX',
-                description:
-                    'I led a full-scale modernization of the company’s network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations. I coordinated and executed the replacement of the Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches. This included redesigning VLANs, implementing segmentation, planning routing changes, and managing configuration, testing, and cutover windows. I also built Power BI monitoring dashboards and automated diagnostic workflows, resulting in a cleaner, more secure, and more stable network.',
-                technologies: [
-                    'Fortinet',
-                    'FortiGate',
-                    'Cisco',
-                    'Juniper',
-                    'VLANs',
-                    'Segmentation',
-                    'Routing',
-                    'Power BI',
-                    'Policy Based Routing',
-                    'Encryption',
-                    'Network Security'
-                ],
-                image: 'https://i.ibb.co/G3TFYLT0/360new.png',
-                type: 'Infrastructure',
-                status: 'In Progress',
-                date: '2025-12-15'
-            },
-            {
-                id: 3,
-                title: 'SLA Monitoring & Ticketing Platform Implementation. 360LGX',
-                description:
-                    'To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.',
-                technologies: ['Monday.com', 'PowerBI', 'Incident + SLA Management'],
-                image: 'https://i.ibb.co/kgcbz55z/m.png',
-                type: 'Monitoring',
-                status: 'Completed',
-                date: '2024-04-25'
-            },
-            {
-                id: 4,
-                title: 'IoT Security & Camera Network Segmentation. 360LGX',
-                description:
-                    'I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs, and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.',
-                technologies: ['VLANs', 'ACLs', 'IP Cameras', 'Layer 2 Security'],
-                image: 'https://i.ibb.co/twW7YDxW/iot.png',
-                type: 'Security',
-                status: 'Completed',
-                date: '2023-06-15'
-            },
-            {
-                id: 5,
-                title: 'Network Automation, Security & Monitoring Enhancements. 360LGX',
-                description:
-                    'I developed Python and PowerShell tools that checked security for users, automated gateway checks, DNS validation, and device reachability tests, reducing incident response times. I also deployed Splunk and Power BI dashboards, configured syslog/SNMP ingestion, and built alerts for interface errors and security events, improving visibility across the network. I utilize AI tools like SelectorAI packet tracer to also diagnose and troubleshoot issues.',
-                technologies: [
-                    'Python',
-                    'PowerShell',
-                    'Splunk',
-                    'SNMP',
-                    'Syslog',
-                    'Power BI',
-                    'SelectorAI'
-                ],
-                image: 'https://i.ibb.co/8gF5X8HB/lab7-3.png',
-                type: 'Infrastructure',
-                status: 'Completed',
-                date: '2021-05-10'
-            },
-            {
-                id: 6,
-                title: 'Hybrid Cloud Connectivity & Azure Integration. AOT',
-                description:
-                    'I supported hybrid cloud operations using Azure VNets, Azure AD, and site-to-site VPN tunnels linking on-prem and cloud environments. I partnered with infrastructure and security teams to validate routing, identity integrations, and uptime for customer-facing systems.',
-                technologies: [
-                    'Azure VNet',
-                    'Azure AD',
-                    'Site-to-Site VPN',
-                    'Hybrid Cloud'
-                ],
-                image: 'https://i.ibb.co/666n969/Azure-hybrid-environment.png',
-                type: 'Infrastructure',
-                status: 'Completed',
-                date: '2021-05-10'
-            },
-            {
-                id: 7,
-                title: 'Cloud Secure Web Gateway Deployment. AOT',
-                description:
-                    'I led the deployment of Forcepoint’s secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
-                technologies: ['Forcepoint', 'Azure AD', 'Cloud Security', 'Splunk'],
-                image: 'https://i.ibb.co/SXLbWxZj/Force.png',
-                type: 'Security',
-                status: 'Completed',
-                date: '2021-09-30'
-            },
-            {
-                id: 8,
-                title: 'Lab - Setting up a multi site network with DHCP.',
-                description: 'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can communicate with one another.',
-                technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
-                image: 'https://i.ibb.co/XxrZQZsN/Cisco-Lab-network1.png',
-                type: 'Infrastructure',
-                status: 'Completed',
-                date: '2024-04-10'
-            }
-        ];
-
-        return defaultProjects;
-    }
+    return [
+        {
+            id: 1,
+            title: 'Enterprise Network Infrastructure Setup. 360LGX',
+            description:
+                'Complete setup of office network infrastructure including core switches, routers, and firewall. The office was running solely off a couple Xfinity WiFi routers, and I came in and completely set up the entire network - This included Cisco Switches and Routers, as well as a Juniper Firewall.',
+            technologies: [
+                'Cisco',
+                'Juniper',
+                'VLANs',
+                'OSPF',
+                'BGP',
+                'Segmentation',
+                'Policy Based Routing',
+                'Encryption',
+                'Network Security'
+            ],
+            image: 'https://i.ibb.co/C3RJbTR8/360original.png',
+            type: 'Infrastructure',
+            status: 'Completed',
+            date: '2022-02-03'
+        },
+        {
+            id: 2,
+            title: 'Enterprise Network Infrastructure Upgrade. 360LGX',
+            description:
+                'I led a full-scale modernization of the company's network infrastructure, transitioning from a fragmented mix of Juniper and Cisco hardware to a unified Fortinet ecosystem. The goal was to improve visibility, simplify management, and strengthen security across on-prem operations. I coordinated and executed the replacement of the Juniper SRX firewall with a FortiGate appliance and supervised the rollout of new Fortinet switches. This included redesigning VLANs, implementing segmentation, planning routing changes, and managing configuration, testing, and cutover windows. I also built Power BI monitoring dashboards and automated diagnostic workflows, resulting in a cleaner, more secure, and more stable network.',
+            technologies: [
+                'Fortinet',
+                'FortiGate',
+                'Cisco',
+                'Juniper',
+                'VLANs',
+                'Segmentation',
+                'Routing',
+                'Power BI',
+                'Policy Based Routing',
+                'Encryption',
+                'Network Security'
+            ],
+            image: 'https://i.ibb.co/G3TFYLT0/360new.png',
+            type: 'Infrastructure',
+            status: 'In Progress',
+            date: '2025-12-15'
+        },
+        {
+            id: 3,
+            title: 'SLA Monitoring & Ticketing Platform Implementation. 360LGX',
+            description:
+                'To streamline operations and project oversight, I implemented Monday.com as the central system for ticketing, project tracking, and SLA management across the organization. I built custom boards, automated workflows, and integrated reporting dashboards using Power BI to track uptime, incident response times, and long-term trends. This transformation improved cross-team coordination by over 70% and gave leadership real-time visibility into performance metrics for projects ranging from $400K to $1.5M. It also gave my team a more structured framework for managing IT operations and escalations.',
+            technologies: ['Monday.com', 'PowerBI', 'Incident + SLA Management'],
+            image: 'https://i.ibb.co/kgcbz55z/m.png',
+            type: 'Monitoring',
+            status: 'Completed',
+            date: '2024-04-25'
+        },
+        {
+            id: 4,
+            title: 'IoT Security & Camera Network Segmentation. 360LGX',
+            description:
+                'I designed and deployed an isolated network architecture for a facility-wide IP camera system. Instead of allowing IoT traffic to mix with business systems, I built a dedicated camera VLAN and enforced ACLs to restrict east–west movement. I mapped device placement, ensured correct switchport configs, and planned physical connectivity for every camera. This became the standard segmentation model for future IoT rollouts.',
+            technologies: ['VLANs', 'ACLs', 'IP Cameras', 'Layer 2 Security'],
+            image: 'https://i.ibb.co/twW7YDxW/iot.png',
+            type: 'Security',
+            status: 'Completed',
+            date: '2023-06-15'
+        },
+        {
+            id: 5,
+            title: 'Network Automation, Security & Monitoring Enhancements. 360LGX',
+            description:
+                'I developed Python and PowerShell tools that checked security for users, automated gateway checks, DNS validation, and device reachability tests, reducing incident response times. I also deployed Splunk and Power BI dashboards, configured syslog/SNMP ingestion, and built alerts for interface errors and security events, improving visibility across the network. I utilize AI tools like SelectorAI packet tracer to also diagnose and troubleshoot issues.',
+            technologies: [
+                'Python',
+                'PowerShell',
+                'Splunk',
+                'SNMP',
+                'Syslog',
+                'Power BI',
+                'SelectorAI'
+            ],
+            image: 'https://i.ibb.co/8gF5X8HB/lab7-3.png',
+            type: 'Infrastructure',
+            status: 'Completed',
+            date: '2021-05-10'
+        },
+        {
+            id: 6,
+            title: 'Hybrid Cloud Connectivity & Azure Integration. AOT',
+            description:
+                'I supported hybrid cloud operations using Azure VNets, Azure AD, and site-to-site VPN tunnels linking on-prem and cloud environments. I partnered with infrastructure and security teams to validate routing, identity integrations, and uptime for customer-facing systems.',
+            technologies: [
+                'Azure VNet',
+                'Azure AD',
+                'Site-to-Site VPN',
+                'Hybrid Cloud'
+            ],
+            image: 'https://i.ibb.co/666n969/Azure-hybrid-environment.png',
+            type: 'Infrastructure',
+            status: 'Completed',
+            date: '2021-05-10'
+        },
+        {
+            id: 7,
+            title: 'Cloud Secure Web Gateway Deployment. AOT',
+            description:
+                'I led the deployment of Forcepoint's secure web gateway and integrated it with Azure AD to enforce identity-aware filtering. I validated user–group mappings, coordinated change windows, and monitored behavior using Splunk to fine-tune policies.',
+            technologies: ['Forcepoint', 'Azure AD', 'Cloud Security', 'Splunk'],
+            image: 'https://i.ibb.co/SXLbWxZj/Force.png',
+            type: 'Security',
+            status: 'Completed',
+            date: '2021-09-30'
+        },
+        {
+            id: 8,
+            title: 'Lab - Setting up a multi site network with DHCP.',
+            description:
+                'Created a large multi-site network (3 sites) and configured DHCP for sites, IP configurations, and confirming all servers and routers can \'speak\' to one another.',
+            technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
+            image: 'https://i.ibb.co/XxrZQZsN/Cisco-Lab-network1.png',
+            type: 'Infrastructure',
+            status: 'Completed',
+            date: '2024-04-10'
+        }
+    ];
+}
 
     loadSkills() {
-        const defaultSkills = [
-            // Networking
-            {
-                id: 1,
-                name: 'Cisco Networking',
-                level: 90,
-                category: 'Networking'
-            },
-            {
-                id: 2,
-                name: 'VLAN Segmentation & Trunking',
-                level: 90,
-                category: 'Networking'
-            },
-            {
-                id: 3,
-                name: 'Network Topology Design',
-                level: 88,
-                category: 'Networking'
-            },
-            {
-                id: 4,
-                name: 'Subnetting & IP Addressing',
-                level: 90,
-                category: 'Networking'
-            },
-            {
-                id: 5,
-                name: 'Routing & Switching',
-                level: 90,
-                category: 'Networking'
-            },
-            {
-                id: 6,
-                name: 'Wireless Networks',
-                level: 75,
-                category: 'Networking'
-            },
-            {
-                id: 7,
-                name: 'Configuration',
-                level: 92,
-                category: 'Networking'
-            },
+    return [
+        // Networking
+        {
+            id: 1,
+            name: 'Cisco Networking',
+            level: 90,
+            category: 'Networking'
+        },
+        {
+            id: 2,
+            name: 'VLAN Segmentation & Trunking',
+            level: 90,
+            category: 'Networking'
+        },
+        {
+            id: 3,
+            name: 'Network Topology Design',
+            level: 88,
+            category: 'Networking'
+        },
+        {
+            id: 4,
+            name: 'Subnetting & IP Addressing',
+            level: 90,
+            category: 'Networking'
+        },
+        {
+            id: 5,
+            name: 'Routing & Switching',
+            level: 90,
+            category: 'Networking'
+        },
+        {
+            id: 6,
+            name: 'Wireless Networks',
+            level: 75,
+            category: 'Networking'
+        },
+        {
+            id: 7,
+            name: 'Configuration',
+            level: 92,
+            category: 'Networking'
+        },
 
-            // Security
-            {
-                id: 8,
-                name: 'Network Security',
-                level: 85,
-                category: 'Security'
-            },
-            {
-                id: 9,
-                name: 'Firewall Management',
-                level: 85,
-                category: 'Security'
-            },
-            {
-                id: 10,
-                name: 'VPN Configuration (IPsec / SSL)',
-                level: 80,
-                category: 'Security'
-            },
-            {
-                id: 11,
-                name: 'Security Logging & Monitoring',
-                level: 80,
-                category: 'Security'
-            },
+        // Security
+        {
+            id: 8,
+            name: 'Network Security',
+            level: 85,
+            category: 'Security'
+        },
+        {
+            id: 9,
+            name: 'Firewall Management',
+            level: 85,
+            category: 'Security'
+        },
+        {
+            id: 10,
+            name: 'VPN Configuration (IPsec / SSL)',
+            level: 80,
+            category: 'Security'
+        },
+        {
+            id: 11,
+            name: 'Security Logging & Monitoring',
+            level: 80,
+            category: 'Security'
+        },
 
-            // Cloud / Systems / Tools
-            {
-                id: 12,
-                name: 'Cloud Architecture (Azure)',
-                level: 70,
-                category: 'Cloud'
-            },
-            {
-                id: 13,
-                name: 'Linux Administration',
-                level: 70,
-                category: 'Systems'
-            },
-            {
-                id: 14,
-                name: 'Windows Administration',
-                level: 80,
-                category: 'Systems'
-            },
-            {
-                id: 15,
-                name: 'Network Monitoring Tools',
-                level: 82,
-                category: 'Tools'
-            },
+        // Cloud / Systems / Tools
+        {
+            id: 12,
+            name: 'Cloud Architecture (Azure)',
+            level: 70,
+            category: 'Cloud'
+        },
+        {
+            id: 13,
+            name: 'Linux Administration',
+            level: 70,
+            category: 'Systems'
+        },
+        {
+            id: 14,
+            name: 'Windows Administration',
+            level: 80,
+            category: 'Systems'
+        },
+        {
+            id: 15,
+            name: 'Network Monitoring Tools',
+            level: 82,
+            category: 'Tools'
+        },
 
-            // Programming / Automation
-            {
-                id: 16,
-                name: 'Python Automation',
-                level: 80,
-                category: 'Programming'
-            },
-            {
-                id: 17,
-                name: 'PowerShell',
-                level: 77,
-                category: 'Programming'
-            },
-            {
-                id: 18,
-                name: 'Bash',
-                level: 70,
-                category: 'Programming'
-            },
+        // Programming / Automation
+        {
+            id: 16,
+            name: 'Python Automation',
+            level: 80,
+            category: 'Programming'
+        },
+        {
+            id: 17,
+            name: 'PowerShell',
+            level: 77,
+            category: 'Programming'
+        },
+        {
+            id: 18,
+            name: 'Bash',
+            level: 70,
+            category: 'Programming'
+        },
 
-            // Project Management
-            {
-                id: 19,
-                name: 'Project Planning & Scheduling',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 20,
-                name: 'Scope Definition & Control',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 21,
-                name: 'Requirements Gathering',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 22,
-                name: 'Risk Identification & Mitigation',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 23,
-                name: 'Stakeholder Management',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 24,
-                name: 'Vendor Management',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 25,
-                name: 'Communication',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 26,
-                name: 'Documentation',
-                level: 95,
-                category: 'Project Management'
-            },
-            {
-                id: 27,
-                name: 'Project Lifecycle Management (Waterfall, Agile, Hybrid)',
-                level: 95,
-                category: 'Project Management'
-            }
-        ];
+        // Project Management
+        {
+            id: 19,
+            name: 'Project Planning & Scheduling',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 20,
+            name: 'Scope Definition & Control',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 21,
+            name: 'Requirements Gathering',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 22,
+            name: 'Risk Identification & Mitigation',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 23,
+            name: 'Stakeholder Management',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 24,
+            name: 'Vendor Management',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 25,
+            name: 'Communication',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 26,
+            name: 'Documentation',
+            level: 95,
+            category: 'Project Management'
+        },
+        {
+            id: 27,
+            name: 'Project Lifecycle Management (Waterfall, Agile, Hybrid)',
+            level: 95,
+            category: 'Project Management'
+        }
+    ];
+}
 
-        return JSON.parse(localStorage.getItem('portfolio_skills')) || defaultSkills;
-    }
-
-    saveProjects() {
-        localStorage.setItem('portfolio_projects', JSON.stringify(this.projects));
-    }
-
-    saveSkills() {
-        localStorage.setItem('portfolio_skills', JSON.stringify(this.skills));
-    }
-
+   
     // Animation Setup
     initializeAnimations() {
         // Typewriter effect for hero text
