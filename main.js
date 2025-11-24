@@ -136,7 +136,7 @@ loadProjects() {
         {
     id: 8,
     title: 'Lab - Setting up a multi site network with DHCP + VlAN Segmentation',
-    description: 'Created a large multi-site network with 3 sites and configured DHCP for sites, IP configurations, and confirmed all servers and routers can communicate with one another. Set up VLAN segmentation for separate department traffic as well. Project file is a Cisco PAcket Tracer File so that you may download and see the full lab.',
+    description: 'Created a large multi-site network with 3 sites and configured DHCP for sites, IP configurations, and confirmed all servers and routers can communicate with one another. Set up VLAN segmentation for separate department traffic as well. Project file is a Cisco Packet Tracer File so that you may download and see the full lab.',
     technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
     image: 'https://i.ibb.co/n8DjpHDz/Cisco-Lab-network1.png',
     type: 'Infrastructure',
