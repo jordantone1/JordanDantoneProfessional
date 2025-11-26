@@ -60,7 +60,7 @@ loadProjects() {
                 'Encryption',
                 'Network Security'
             ],
-            image: 'https://i.ibb.co/G3TFYLT0/360new.png',
+            image: 'https://i.ibb.co/fzBHBSVM/360new2.png',
             type: 'Infrastructure',
             status: 'In Progress',
             date: '2025-12-15'
