@@ -102,7 +102,7 @@ loadProjects() {
                 'SelectorAI'
             ],
             image: 'https://i.ibb.co/8gF5X8HB/lab7-3.png',
-            type: 'Infrastructure',
+            type: 'Monitoring',
             status: 'Completed',
             date: '2021-05-10'
         },
