@@ -38,7 +38,7 @@ loadProjects() {
                 'Encryption',
                 'Network Security'
             ],
-            image: 'https://i.ibb.co/C3RJbTR8/360original.png',
+            image: 'https://i.ibb.co/fzBHBSVM/360new2.png',
             type: 'Infrastructure',
             status: 'Completed',
             date: '2022-02-03'
@@ -60,7 +60,7 @@ loadProjects() {
                 'Encryption',
                 'Network Security'
             ],
-            image: 'https://i.ibb.co/fzBHBSVM/360new2.png',
+            image: 'https://i.ibb.co/CKq7FDBz/360new.png',
             type: 'Infrastructure',
             status: 'In Progress',
             date: '2025-12-15'
