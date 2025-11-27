@@ -134,7 +134,18 @@ loadProjects() {
             date: '2021-09-30'
         },
         {
-    id: 8,
+            id: 8,
+            title: 'Enterprise ERP Integration & Inventory Consolidation. AOT',
+            description:
+                'Led a 7-month enterprise ERP implementation to consolidate inventory management across 15 clients onto a unified platform. Coordinated between clients and ERP vendor to standardize data ingestion methods across varying integration preferences (API, file transfer, EDI). Managed requirements gathering, data flow mapping, client onboarding, and post-implementation adoption. The solution enabled centralized inventory monitoring, automated replenishment alerts based on stock levels and manufacturing lead times, and provided visibility into cross-sell opportunities for business growth.',
+            technologies: ['ERP Systems', 'API Integration', 'EDI', 'SFTP/File Transfer', 'Data Mapping', 'Inventory Management', 'Stakeholder Management', 'Requirements Gathering', 'Change Management', 'Client On-boarding'],
+            image: 'https://i.ibb.co/Swp2K2G2/ERP-Integration-Project-Diagram.png',
+            type: 'ERP Systems Integration',
+            status: 'Completed',
+            date: '2020-08-22'
+        },
+        {
+    id: 9,
     title: 'Lab - Setting up a multi site network with DHCP + VlAN Segmentation',
     description: 'Created a large multi-site network with 3 sites and configured DHCP for sites, IP configurations, and confirmed all servers and routers can communicate with one another. Set up VLAN segmentation for separate department traffic as well. Project file is a Cisco Packet Tracer File so that you may download and see the full lab.',
     technologies: ['Cisco Packet Tracer', 'Routers', 'Switches', 'IP Configuration', 'DHCP Site Configuration'],
