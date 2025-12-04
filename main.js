@@ -154,7 +154,18 @@ loadProjects() {
     status: 'Completed',
     date: '2024-04-10',
     projectLink: 'https://drive.google.com/file/d/1V_mjZtZ8zGNOUiC6q4plcq0c9TPhIPhv/view?usp=sharing'
-}
+},
+    {
+            id: 10,
+            title: 'Lab - Fully Emulated/Simulated Enterprise Network Build. ',
+            description:
+                'Built a complete emulation (simpler for the lab environment though) of my current network that I built with 360LGX. FortiGate HA, 4 branch connectivity, each branch with multiple VLANs, IoT Camera System, Guest Wifi, Server farm, and an example of where a GEO LB will go if growth occurs. Link for documentation: https://docs.google.com/document/d/1ARKCoGrDzAgem7nFoddkqDje8RNJf8YMT4tA-BJwbjw/edit?usp=sharing  Link for GNS3 Lab File: https://drive.google.com/file/d/1boN8b-_78aAED3yl5O8fbGTrDIHnZuOS/view?usp=sharing',
+            technologies: ['GNS3', 'FortiGate', 'VyOS', 'Windows 2022 Servers', 'Alpine', 'OpenVSwitch', 'Debian GEO LB'],
+            image: 'https://i.ibb.co/Q3F0XBGb/Enterprise.png',
+            type: 'Network Architecture',
+            status: 'Completed',
+            date: '2025-12-04'
+        }
     ];
 }
 
